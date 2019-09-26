@@ -440,7 +440,7 @@
 
 /* Landscape */ 
 @media only screen 
-and (min-device-width: 1112px) 
+and (min-width: 1112px) 
 and (max-height: 834px) 
 and (orientation: landscape) 
 and (-webkit-min-device-pixel-ratio: 2) {
@@ -529,7 +529,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 /*Portrait*/ 
 @media only screen 
-and (min-device-width: 834px)
+and (min-width: 834px)
 and (max-height: 1112px) 
 and (orientation: portrait) 
 and (-webkit-min-device-pixel-ratio: 2) {
@@ -618,7 +618,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* ----------- iPad Pro 12.9 ----------- */
 /* Portrait */
 @media only screen 
-  and (min-device-width: 1024px) 
+  and (min-width: 1024px) 
   and (max-height: 1366px) 
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 2) {
@@ -712,8 +712,14 @@ and (-webkit-min-device-pixel-ratio: 2) {
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 2) {
 
-    body {
-            margin: 15px;
+    body, html {
+            height: 100%;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            justify-items: center; 
+            margin: 0;
             padding: 0;
             background: #fff;
             color: #A6A6A6;
@@ -722,17 +728,22 @@ and (-webkit-min-device-pixel-ratio: 2) {
             font-weight: 400;
             font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
         }
-        
+
         .container {
             display: grid;
-            grid-template-columns: 30ems 1fr 1fr 150px;
-            grid-template-rows: 1fr 1fr 1fr;
+            justify-self: center;
+            grid-template-columns: 2vw 28vw 1fr 4vw 2vw;
+            grid-template-rows: 2vh 1fr 1fr 1fr 2vh;
             grid-template-areas: 
-            "gong-name image image gong-logo" 
-            "gong-new-site image image gong-logo" 
-            "gong-details image image gong-logo" ;
+            ". . . . ." 
+            ". gong-name image gong-logo ." 
+            ". gong-new-site image gong-logo ." 
+            ". gong-details image gong-logo ."
+            ". . . . ."  ;
             grid-gap: 20px;
-            height: 86vh;
+            height: 100vh;
+            width: 100vw;
+            align-items: start;
         }
 
         .gongName {
@@ -760,9 +771,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
             justify-self: left;
         }
         .picture img {
+            border: 1px solid#cccccc;
             width: auto;
-            height: 85.65vh;
-            border: 1px solid #cccccc;
+            height: 90vh;
         }
         .gongLogo {
                 grid-area: gong-logo;
@@ -770,7 +781,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
                 justify-self: right;
         }
         .gongLogo img {
-                width: 60px;
+                width: 4vw;
                 }
 
         a, a:hover, a:visited {
@@ -783,8 +794,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 2.5em;
         line-height: .8em;
         text-transform: uppercase;
-        margin-top: -6px;
-        margin-bottom: 10px;
+        margin: 0 0 10px 0;
         letter-spacing: -.08em;
     }
         
@@ -792,11 +802,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: .6em;
         line-height: 1.5em;
         }
-      
 
-}
-        
+  }        
     </style>
+
 </head>
 
 <body>
