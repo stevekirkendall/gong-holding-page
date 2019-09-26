@@ -1,307 +1,818 @@
+
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400" rel="stylesheet">-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://use.typekit.net/ksi6olq.css">
     <title>George Ong Photography</title>
     <style>
         
         body {
-            margin: 0;
+            margin: 10px; 
             padding: 0;
             background: #fff;
             color: #A6A6A6;
-            /*font-family: 'Nunito Sans', sans-serif;*/
             font-family: century-gothic, sans-serif;
             font-style: normal;
             font-weight: 400;
+            font-size: 62.5%;
         }
         
-        #container {
-            display: flex;
-            flex-flow: column wrap;
-            height: 92vh;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: minmax(180px auto);
+            grid-template-areas: 
+            "gong-name gong-name gong-logo gong-logo" 
+            "gong-details gong-details gong-logo gong-logo" 
+            "image image image image" 
+            "gong-new-site gong-new-site gong-new-site gong-new-site";
+            grid-gap: 8px;
+            height: 79vh;
+            align-items: start;
+            margin: 20px 10px 10px 10px;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+
+        .gongNewSite {
+            grid-area: gong-new-site;
+            justify-self: right;
         }
         
-        #col {
-            display: flex;
-            flex-flow: column wrap;
+        .gongDetails {
+            grid-area: gong-details;
+            align-self: start;
         }
-        
-        .item {
-            margin: 18px;
-            text-align: left;
-            margin-bottom: -30px;
+        .gongDetails a {
+            line-height: 0;
 
         }
-        
-        .type {
-            align-self: flex-start;
-        }
-        
         .picture {
-        background: url("img/GONGCar04.png") no-repeat center center;
-        background-size: cover;
-        flex-grow: 1;
-    }
-        
-    a, a:hover, a:visited {
-        color: #A6A6A6;
-        text-decoration: none;
-    }
+            grid-area: image;
+        }
+        .picture img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 35px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
         
     h1 {
         font-weight: 200;
-        font-size: 28px;
-        line-height: 24px;
+        font-size: 3em;
+        line-height: .8em;
         text-transform: uppercase;
         margin-top: 0;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
+        letter-spacing: -.08em;
     }
         
     p {
-        font-size: 1em;
-        line-height: 1.5em;
-        margin-bottom: 30px;
+        margin: 0;
+        padding: 0;
+        font-size: 1.5em;
+        line-height: 1.4em;
         }
         
-    .logo img {
-        width: 60px;
-        margin-bottom: .5em;
-    }
+    
 
         
 @media only screen and (min-width: 500px) {
-            
-       #container {
-            display: flex;
-            flex-flow: row wrap;
-            height: 100vh;
+    body {
+            margin: 10px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
         }
         
-        #col {
-            display: flex;
-            flex-flow: column wrap;
-            height: 100vh;
+        .container {
+            display: grid;
+            grid-template-columns: 30ems 1fr 1fr 150px;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "gong-name image image gong-logo" 
+            "gong-new-site image image gong-logo" 
+            "gong-details image image gong-logo" ;
+            grid-gap: 20px;
+            height: 88vh;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            align-self: center;
+            justify-self: left;
+        }
+        .gongNewSite p {
+            font-size: .6em;
+            text-align: left;
+        }
+        .gongDetails {
+            grid-area: gong-details;
+            margin-top: auto;
+        }
+        .gongDetails a {
+            line-height: 0;
 
         }
+        .picture {
+            grid-area: image;
+            
+        }
+        .picture img {
+            width: auto;
+            height: 88vh;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 30px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
         
-        .item {
+    h1 {
+        font-weight: 200;
+        font-size: 3em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: -3px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
+    }
+        
+    p {
+        font-size: .6em;
+        line-height: 1.5em;
+        }
+   }
+        
+   @media only screen and (min-width: 768px) {
+    body {
             margin: 20px;
-            text-align: left;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 62.5%;
         }
         
-        .type {
-            align-self: flex-start;
-            margin-bottom: -10px;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 20vh 10vh 1fr;
+            grid-template-areas: 
+            "gong-name gong-name gong-name gong-logo" 
+            "gong-details gong-new-site gong-new-site gong-logo" 
+            "image image image gong-logo" ;
+            grid-gap: 10px;
+            height: 70vh;
+            align-items: start;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            justify-self: right;
+            align-self:auto;
+        }
+        
+        .gongDetails {
+            grid-area: gong-details;
+            margin-bottom: 10px;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+        }
+        .picture img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
         }
         
     h1 {
         font-weight: 200;
-        font-size: 28px;
-        line-height: 24px;
+        font-size: 5.75em;
+        line-height: .8em;
         text-transform: uppercase;
         margin-top: 0;
-        margin-bottom: -6px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
     }
         
-    p {
-        font-size: .85em;
-        line-height: 1.4em;
-        margin-bottom: -4px;
+    .gongNewSite p, p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.6em;
+        line-height: 1.3em;
         }
-        
-    .logo img {
-        width: 56px;
-    }
+   }
 
-            
-        }
-        
-@media only screen and (min-width: 768px) {
        
-    #container {
-            display: flex;
-            flex-flow: column wrap;
-            height: 100vh;
-        }
-        
-        #col {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: flex-start;
-            height: 23vh;
-        }
-
-    .item {
-            margin: 30px;
-            text-align: left;
-            flex: 1;
-        }
-        
-        .type {
-            align-self: flex-end;
-        }
-        
-    h1 {
-        font-weight: 200;
-        font-size: 38px;
-        line-height: 32px;
-        text-transform: uppercase;
-        margin-top: 0;
-        margin-bottom: -6px;
-    }
-        
-    p {
-        font-size: .9em;
-        line-height: 1.4em;
-        margin-bottom: -4px;
-        }
-    
-    .right {
-        text-align: right;
-    }
-        
-    .logo img {
-        width: 70px;
-    }
-
-    .picture {
-        background: url("img/GONGCar04.png") no-repeat center center;
-        background-size: cover;
-        flex-grow: 1;
-    }
-            
-        }
 
 @media only screen and (min-width: 800px) {
-            
-        #container {
-            display: flex;
-            flex-flow: row wrap;
-            height: 100vh;
-        }
-        
-        #col {
-            display: flex;
-            flex-flow: column wrap;
-            height: 100vh;
-
-        }
-        
-        .item {
+    body {
             margin: 20px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 30ems 1fr 1fr 150px;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "gong-name image image gong-logo" 
+            "gong-new-site image image gong-logo" 
+            "gong-details image image gong-logo" ;
+            grid-gap: 20px;
+            height: 80vh;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            align-self: center;
+            justify-self: left;
+        }
+        .gongNewSite p {
+            font-size: .6em;
             text-align: left;
         }
-        
-        .type {
-            align-self: flex-start;
-            margin-bottom: -10px;
+        .gongDetails {
+            grid-area: gong-details;
+            margin-top: auto;
         }
-        
-    h1 {
-        font-weight: 200;
-        font-size: 28px;
-        line-height: 24px;
-        text-transform: uppercase;
-        margin-top: 0;
-        margin-bottom: -6px;
-    }
-        
-    p {
-        font-size: .85em;
-        line-height: 1.4em;
-        margin-bottom: -4px;
-        }
-        
-    .logo img {
-        width: 56px;
-    }
-
-            
-        }
- 
-
-@media only screen and (min-width: 1100px) {
-            
-        #container {
-            display: flex;
-            flex-flow: row wrap;
-            height: 100vh;
-        }
-        
-        #col {
-            display: flex;
-            flex-flow: column wrap;
-            width: 40vh;
-            height: 100vh;
+        .gongDetails a {
+            line-height: 0;
 
         }
-        
-        .item {
-            margin: 30px;
-            text-align: left;
-        }
-        
-        .type {
-            align-self: flex-start;
-        }
-        
         .picture {
-        background: url("img/GONGCar04.png") no-repeat center center;
-        background-size: cover;
-        flex-grow: 1;
-    }
-        
-    a, a:hover, a:visited {
-        color: #A6A6A6;
-        text-decoration: none;
-    }
+            grid-area: image;
+            justify-self: center;
+            align-self: center;
+        }
+        .picture img {
+            width: auto;
+            height: 79.5vh;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 40px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
         
     h1 {
         font-weight: 200;
-        font-size: 54px;
-        line-height: 44px;
+        font-size: 2.2em;
+        line-height: .8em;
         text-transform: uppercase;
-        margin-top: 0;
+        margin-top: -5px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
     }
         
     p {
-        font-size: 1.2em;
-        line-height: 2em;
+        font-size: .6em;
+        line-height: 1.5em;
         }
-    
-    .right {
-        text-align: left;
+   }
+
+   
+@media only screen and (min-width: 1024px) {
+    body {
+            margin: 15px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 30ems 1fr 1fr 150px;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "gong-name image image gong-logo" 
+            "gong-new-site image image gong-logo" 
+            "gong-details image image gong-logo" ;
+            grid-gap: 20px;
+            height: 86vh;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            align-self: center;
+            justify-self: left;
+        }
+        .gongNewSite p {
+            font-size: .6em;
+            text-align: left;
+        }
+        .gongDetails {
+            grid-area: gong-details;
+            margin-top: auto;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+            justify-self: left;
+        }
+        .picture img {
+            width: auto;
+            height: 85.65vh;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
+        
+    h1 {
+        font-weight: 200;
+        font-size: 2.5em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: -6px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
     }
         
-    .logo img {
-        width: 100px;
-        margin-bottom: 1em;
+    p {
+        font-size: .6em;
+        line-height: 1.5em;
+        }
+   }
+
+/* ----------- iPad Pro 10.5 ----------- */
+
+/* Portrait and Landscape 
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+} */
+
+/* Landscape */ 
+@media only screen 
+and (min-device-width: 1112px) 
+and (max-height: 834px) 
+and (orientation: landscape) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+    body {
+            margin: 15px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 30ems 1fr 1fr 150px;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "gong-name image image gong-logo" 
+            "gong-new-site image image gong-logo" 
+            "gong-details image image gong-logo" ;
+            grid-gap: 20px;
+            height: 86vh;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            align-self: center;
+            justify-self: left;
+        }
+        .gongNewSite p {
+            font-size: .6em;
+            text-align: left;
+        }
+        .gongDetails {
+            grid-area: gong-details;
+            margin-top: auto;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+            justify-self: left;
+        }
+        .picture img {
+            width: auto;
+            height: 85.65vh;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
+        
+    h1 {
+        font-weight: 200;
+        font-size: 2.5em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: -6px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
+    }
+        
+    p {
+        font-size: .6em;
+        line-height: 1.5em;
+        }
     }
 
-            
+/*Portrait*/ 
+@media only screen 
+and (min-device-width: 834px)
+and (max-height: 1112px) 
+and (orientation: portrait) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+    body {
+            margin: 20px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 62.5%;
         }
         
+       .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 20vh 10vh 1fr;
+            grid-template-areas: 
+            "gong-name gong-name gong-name gong-logo" 
+            "gong-details gong-new-site gong-new-site gong-logo" 
+            "image image image gong-logo" ;
+            grid-gap: 10px;
+            height: 70vh;
+            align-items: start;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            justify-self: right;
+            align-self:auto;
+        }
+        
+        .gongDetails {
+            grid-area: gong-details;
+            margin-bottom: 10px;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+        }
+        .picture img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
+        
+    h1 {
+        font-weight: 200;
+        font-size: 5.75em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
+    }
+        
+    .gongNewSite p, p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.6em;
+        line-height: 1.3em;
+        }
+    }
+
+/* ----------- iPad Pro 12.9 ----------- */
+/* Portrait */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    body {
+            margin: 20px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 62.5%;
+        }
+        
+       .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 20vh 10vh 1fr;
+            grid-template-areas: 
+            "gong-name gong-name gong-name gong-logo" 
+            "gong-details gong-new-site gong-new-site gong-logo" 
+            "image image image gong-logo" ;
+            grid-gap: 10px;
+            height: 70vh;
+            align-items: start;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            justify-self: right;
+            align-self:auto;
+        }
+        
+        .gongDetails {
+            grid-area: gong-details;
+            margin-bottom: 10px;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+        }
+        .picture img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
+        
+    h1 {
+        font-weight: 200;
+        font-size: 5.75em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
+    }
+        
+    .gongNewSite p, p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.6em;
+        line-height: 1.3em;
+        }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    body {
+            margin: 15px;
+            padding: 0;
+            background: #fff;
+            color: #A6A6A6;
+            font-family: century-gothic, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 30ems 1fr 1fr 150px;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            "gong-name image image gong-logo" 
+            "gong-new-site image image gong-logo" 
+            "gong-details image image gong-logo" ;
+            grid-gap: 20px;
+            height: 86vh;
+        }
+
+        .gongName {
+            grid-area: gong-name;
+        }
+        .gongNewSite {
+            grid-area: gong-new-site;
+            align-self: center;
+            justify-self: left;
+        }
+        .gongNewSite p {
+            font-size: .6em;
+            text-align: left;
+        }
+        .gongDetails {
+            grid-area: gong-details;
+            margin-top: auto;
+        }
+        .gongDetails a {
+            line-height: 0;
+
+        }
+        .picture {
+            grid-area: image;
+            justify-self: left;
+        }
+        .picture img {
+            width: auto;
+            height: 85.65vh;
+            border: 1px solid #cccccc;
+        }
+        .gongLogo {
+                grid-area: gong-logo;
+                align-self: center;
+                justify-self: right;
+        }
+        .gongLogo img {
+                width: 60px;
+                }
+
+        a, a:hover, a:visited {
+            color: #A6A6A6;
+            text-decoration: none;
+        }
+        
+    h1 {
+        font-weight: 200;
+        font-size: 2.5em;
+        line-height: .8em;
+        text-transform: uppercase;
+        margin-top: -6px;
+        margin-bottom: 10px;
+        letter-spacing: -.08em;
+    }
+        
+    p {
+        font-size: .6em;
+        line-height: 1.5em;
+        }
+      
+
+}
         
     </style>
 </head>
 
 <body>
    
-   <div id="container">
-       <div id="col">
-           <div class="item logo type ">
-           <img src="img/gong_logo.svg" alt="George Ong Logo">
-            <h1>George<br/>Ong<br/>Photo</h1></div>
-           <div class="item type" ><p>020 7490 1727<br/>
+   <div class="container">
+           <div class="gongName">
+            <h1>George<br/>
+            Ong<br/>
+            Photo</h1>
+            </div>
+           <div class="gongDetails" ><p>020 7490 1727<br/>
                                 07930 441 690<br/> 
                                 <a href="mailto:info@georgeong.co.uk">info@georgeong.co.uk</a> </p></div>
-            <div class="item type right"><p>New website coming soon</p></div>
-       </div>
-       <div class="item picture"></div>
+            <div class="gongNewSite"><p>New website coming soon</p></div>
+       <div class="picture"><img src="img/3xShoesCropv2.jpg" alt="Three Red Shoes – Photograph by George Ong"></div>
+       <div class="gongLogo"><img src="img/gong_logo.svg" alt="George Ong Logo"></div>
    </div>
     
 </body>
